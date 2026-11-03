@@ -1,0 +1,60 @@
+@keyframes kundana-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes kundana-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+@keyframes kundana-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.12);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.08);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: kundana-float 5.5s ease-in-out infinite;
+}
+
+.animate-soft-pulse {
+  animation: kundana-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: kundana-heartbeat 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-soft-pulse,
+  .animate-heartbeat {
+    animation: none !important;
+  }
+}

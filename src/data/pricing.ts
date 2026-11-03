@@ -1,0 +1,72 @@
+import type { PricingPlan } from '@/types'
+import { SITE } from '@/lib/constants'
+
+export const pricingPlans: PricingPlan[] = [
+  {
+    id: 'registration',
+    name: 'Registration',
+    monthlyPrice: SITE.registrationFee,
+    yearlyPrice: SITE.registrationFee,
+    currency: SITE.currency,
+    periodLabel: 'one time',
+    description: 'Activate your account and start discovering people.',
+    features: [
+      'Create a full profile with your photo',
+      'Browse people across Burundi',
+      'Like and match',
+      'In app chat after activation',
+      'Age 18+ members only',
+    ],
+    highlighted: true,
+    cta: 'Create account',
+  },
+  {
+    id: 'plus',
+    name: 'Plus',
+    monthlyPrice: 8000,
+    yearlyPrice: 72000,
+    currency: SITE.currency,
+    periodLabel: 'month',
+    description: 'More discovery tools for serious browsing.',
+    features: [
+      'Everything in Registration',
+      'Advanced filters',
+      'Profile highlights',
+      'Extra daily likes',
+    ],
+    cta: 'Choose Plus',
+  },
+  {
+    id: 'vip',
+    name: 'VIP',
+    monthlyPrice: 15000,
+    yearlyPrice: 140000,
+    currency: SITE.currency,
+    periodLabel: 'month',
+    description: 'Priority visibility and premium discovery.',
+    features: [
+      'Everything in Plus',
+      'Priority profile visibility',
+      'VIP badge',
+      'See who liked you',
+      'Advanced preferences',
+    ],
+    cta: 'Go VIP',
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    monthlyPrice: 25000,
+    yearlyPrice: 230000,
+    currency: SITE.currency,
+    periodLabel: 'month',
+    description: 'Full access with priority support.',
+    features: [
+      'Everything in VIP',
+      'Enhanced profile customization',
+      'Premium discovery',
+      'Priority support',
+    ],
+    cta: 'Go Premium',
+  },
+]
