@@ -4,7 +4,6 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppButton } from '@/components/common/WhatsAppButton'
 import { ScrollProgress } from '@/components/common/ScrollProgress'
-import { BackToTop } from '@/components/common/BackToTop'
 import { SITE } from '@/lib/constants'
 import './globals.css'
 
@@ -58,7 +57,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
-        <BackToTop />
       </body>
     </html>
   )
