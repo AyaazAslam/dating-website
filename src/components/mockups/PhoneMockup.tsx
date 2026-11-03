@@ -1,9 +1,10 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
 import { Heart, Star, X } from 'lucide-react'
 import { useState } from 'react'
 import { profiles } from '@/data/profiles'
+import { useCanAnimate } from '@/hooks/usePrefersReducedMotion'
 import { AppBottomNavigation, type AppTab } from './AppBottomNavigation'
 import { ChatPreview } from './ChatPreview'
 import { ProfileCard } from './ProfileCard'
@@ -17,7 +18,7 @@ export function PhoneMockup({ interactive = false }: { interactive?: boolean }) 
   const [matchOpen, setMatchOpen] = useState(false)
   const [tab, setTab] = useState<AppTab>('discover')
   const [chatId, setChatId] = useState(profiles[0].id)
-  const reduce = useReducedMotion()
+  const canAnimate = useCanAnimate()
   const profile = profiles[index % profiles.length]
 
   function nextProfile() {
@@ -34,7 +35,7 @@ export function PhoneMockup({ interactive = false }: { interactive?: boolean }) 
     <>
       <motion.div
         className="relative mx-auto w-[min(100%,290px)]"
-        initial={reduce ? false : { opacity: 0, scale: 0.94, y: 18 }}
+        initial={canAnimate ? { opacity: 0, scale: 0.94, y: 18 } : false}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}

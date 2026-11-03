@@ -1,7 +1,8 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
+import { useCanAnimate } from '@/hooks/usePrefersReducedMotion'
 
 interface FloatingElementProps {
   children: ReactNode
@@ -18,22 +19,22 @@ export function FloatingElement({
   delay = 0,
   y = 10,
 }: FloatingElementProps) {
-  const reduce = useReducedMotion()
-
-  if (reduce) {
-    return <div className={className}>{children}</div>
-  }
+  const canAnimate = useCanAnimate()
 
   return (
     <motion.div
       className={className}
-      animate={{ y: [0, -y, 0] }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      }}
+      animate={canAnimate ? { y: [0, -y, 0] } : undefined}
+      transition={
+        canAnimate
+          ? {
+              duration,
+              delay,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }
+          : undefined
+      }
     >
       {children}
     </motion.div>

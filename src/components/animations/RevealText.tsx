@@ -1,6 +1,7 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
+import { useCanAnimate } from '@/hooks/usePrefersReducedMotion'
 import { durations, easeOut, viewportOnce } from './motion'
 
 interface RevealTextProps {
@@ -10,21 +11,15 @@ interface RevealTextProps {
 }
 
 export function RevealText({ text, as: Tag = 'h2', className }: RevealTextProps) {
-  const reduce = useReducedMotion()
+  const canAnimate = useCanAnimate()
   const words = text.split(' ')
-
-  if (reduce) {
-    return <Tag className={className}>{text}</Tag>
-  }
 
   return (
     <Tag className={className}>
-      <span className="sr-only">{text}</span>
       <motion.span
-        aria-hidden="true"
         className="inline"
-        initial="hidden"
-        whileInView="visible"
+        initial={canAnimate ? 'hidden' : false}
+        whileInView={canAnimate ? 'visible' : undefined}
         viewport={viewportOnce}
         variants={{
           hidden: {},
@@ -34,15 +29,20 @@ export function RevealText({ text, as: Tag = 'h2', className }: RevealTextProps)
         {words.map((word, index) => (
           <motion.span
             key={`${word}-${index}`}
-            className="inline-block mr-[0.28em]"
-            variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: durations.normal, ease: easeOut },
-              },
-            }}
+            className="inline-block"
+            style={{ marginRight: index === words.length - 1 ? 0 : '0.28em' }}
+            variants={
+              canAnimate
+                ? {
+                    hidden: { opacity: 0, y: 16 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: durations.normal, ease: easeOut },
+                    },
+                  }
+                : undefined
+            }
           >
             {word}
           </motion.span>

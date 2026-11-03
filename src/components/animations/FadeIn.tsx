@@ -1,7 +1,8 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
+import { useCanAnimate } from '@/hooks/usePrefersReducedMotion'
 import { fadeIn, fadeUp, scaleIn, slideLeft, slideRight, viewportOnce } from './motion'
 
 const variantsMap = {
@@ -22,19 +23,15 @@ interface FadeInProps {
 }
 
 export function FadeIn({ children, variant = 'up', className, delay = 0 }: FadeInProps) {
-  const reduce = useReducedMotion()
+  const canAnimate = useCanAnimate()
   const selected = variantsMap[variant]
-
-  if (reduce) {
-    return <div className={className}>{children}</div>
-  }
 
   return (
     <motion.div
       className={className}
-      variants={selected}
-      initial="hidden"
-      whileInView="visible"
+      variants={canAnimate ? selected : undefined}
+      initial={canAnimate ? 'hidden' : false}
+      whileInView={canAnimate ? 'visible' : undefined}
       viewport={viewportOnce}
       transition={{ delay }}
     >

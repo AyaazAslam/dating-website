@@ -1,7 +1,8 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
+import { useCanAnimate } from '@/hooks/usePrefersReducedMotion'
 import { fadeUp, staggerContainer, viewportOnce } from './motion'
 
 interface StaggerContainerProps {
@@ -10,18 +11,14 @@ interface StaggerContainerProps {
 }
 
 export function StaggerContainer({ children, className }: StaggerContainerProps) {
-  const reduce = useReducedMotion()
-
-  if (reduce) {
-    return <div className={className}>{children}</div>
-  }
+  const canAnimate = useCanAnimate()
 
   return (
     <motion.div
       className={className}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
+      variants={canAnimate ? staggerContainer : undefined}
+      initial={canAnimate ? 'hidden' : false}
+      whileInView={canAnimate ? 'visible' : undefined}
       viewport={viewportOnce}
     >
       {children}
@@ -36,10 +33,10 @@ export function StaggerItem({
   children: ReactNode
   className?: string
 }) {
-  const reduce = useReducedMotion()
-  if (reduce) return <div className={className}>{children}</div>
+  const canAnimate = useCanAnimate()
+
   return (
-    <motion.div className={className} variants={fadeUp}>
+    <motion.div className={className} variants={canAnimate ? fadeUp : undefined}>
       {children}
     </motion.div>
   )
