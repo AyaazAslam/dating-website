@@ -16,8 +16,8 @@ export function FloatingNotifications() {
         delay={0.4}
         y={8}
       >
-        <div className="rounded-2xl border border-white/50 bg-white/95 p-3 shadow-xl backdrop-blur">
-          <div className="flex items-center gap-2 text-sm font-semibold text-[var(--ink)]">
+        <div className="rounded-2xl border border-white/15 bg-[#1d1528]/95 p-3 shadow-xl backdrop-blur">
+          <div className="flex items-center gap-2 text-sm font-semibold text-white">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--blush)] text-[var(--primary)]">
               <Heart className="h-4 w-4 animate-heartbeat" />
             </span>
@@ -31,14 +31,14 @@ export function FloatingNotifications() {
         delay={0.7}
         y={9}
       >
-        <div className="rounded-2xl border border-white/50 bg-white/95 p-3 shadow-xl backdrop-blur">
+        <div className="rounded-2xl border border-white/15 bg-[#1d1528]/95 p-3 shadow-xl backdrop-blur">
           <div className="flex items-start gap-2">
-            <span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--blush)] text-[var(--plum)]">
+            <span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--blush)] text-[var(--secondary)]">
               <MessageCircle className="h-4 w-4" />
             </span>
             <div>
-              <p className="text-sm font-semibold text-[var(--ink)]">New Message</p>
-              <p className="text-xs text-[var(--muted)]">Hey, loved your profile</p>
+              <p className="text-sm font-semibold text-white">New Message</p>
+              <p className="text-xs text-white/55">Hey, loved your profile</p>
             </div>
           </div>
         </div>

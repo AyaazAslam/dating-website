@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import { Minus, Plus } from 'lucide-react'
 import { useId, useState } from 'react'
 import type { FaqItem } from '@/types'
@@ -8,7 +8,6 @@ import { cn } from '@/lib/utils'
 
 export function Accordion({ items }: { items: FaqItem[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null)
-  const reduce = useReducedMotion()
   const baseId = useId()
 
   return (
@@ -21,7 +20,7 @@ export function Accordion({ items }: { items: FaqItem[] }) {
         return (
           <div
             key={item.id}
-            className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white"
+            className="overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface)]"
           >
             <h3>
               <button
@@ -29,7 +28,7 @@ export function Accordion({ items }: { items: FaqItem[] }) {
                 type="button"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-[var(--ink)]"
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-white"
                 onClick={() => setOpenId(isOpen ? null : item.id)}
               >
                 <span>{item.question}</span>
@@ -48,13 +47,13 @@ export function Accordion({ items }: { items: FaqItem[] }) {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  initial={reduce ? false : { height: 0, opacity: 0 }}
+                  initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
-                  exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                  exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-[var(--muted)] sm:text-base">
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-white/60 sm:text-base">
                     {item.answer}
                   </p>
                 </motion.div>

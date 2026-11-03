@@ -16,50 +16,34 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] bg-white">
+    <footer className="border-t border-white/10 bg-[#09040f]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.3fr_1fr_1fr] lg:px-8">
         <div>
-          <p className="font-display text-2xl font-semibold text-[var(--ink)]">{SITE.name}</p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--muted)]">
+          <p className="font-display text-2xl font-semibold text-white">
+            {SITE.name}
+            <span className="text-[var(--primary)]">.com</span>
+          </p>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
             Helping people across Burundi discover meaningful connections, one story at a time.
           </p>
           <div className="mt-5 flex gap-3">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-xs font-bold text-[var(--ink)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-            >
-              IG
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-xs font-bold text-[var(--ink)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-            >
-              FB
-            </a>
-            <a
-              href="https://tiktok.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="TikTok"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] text-xs font-bold text-[var(--ink)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-            >
-              TT
-            </a>
+            {['IG', 'FB', 'TT'].map((label) => (
+              <span
+                key={label}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-xs font-bold text-white/70"
+              >
+                {label}
+              </span>
+            ))}
           </div>
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--ink)]">Explore</p>
+          <p className="text-sm font-bold uppercase tracking-[0.12em] text-white">Explore</p>
           <ul className="mt-4 space-y-2">
             {explore.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-[var(--muted)] hover:text-[var(--primary)]">
+                <Link href={item.href} className="text-sm text-white/55 hover:text-[var(--primary)]">
                   {item.label}
                 </Link>
               </li>
@@ -68,11 +52,11 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--ink)]">Legal</p>
+          <p className="text-sm font-bold uppercase tracking-[0.12em] text-white">Legal</p>
           <ul className="mt-4 space-y-2">
             {legal.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-[var(--muted)] hover:text-[var(--primary)]">
+                <Link href={item.href} className="text-sm text-white/55 hover:text-[var(--primary)]">
                   {item.label}
                 </Link>
               </li>
@@ -80,7 +64,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-[var(--border)] px-4 py-5 text-center text-sm text-[var(--muted)]">
+      <div className="border-t border-white/10 px-4 py-5 text-center text-sm text-white/40">
         © 2026 {SITE.name}. Demo project for client review.
       </div>
     </footer>

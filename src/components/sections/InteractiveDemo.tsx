@@ -13,7 +13,7 @@ export function InteractiveDemo() {
             title="More Than Just Swiping."
             subtitle="A beautiful experience designed to bring people closer. Try likes, chats, and tabs in this frontend demo."
           />
-          <FadeIn className="mt-6 space-y-3 text-sm leading-relaxed text-[var(--muted)]">
+          <FadeIn className="mt-6 space-y-3 text-sm leading-relaxed text-white/60">
             <p>Pass moves to the next profile. Like opens a match modal. Chats switch conversations instantly.</p>
             <p>No backend is connected. Every interaction is a product preview for client review.</p>
           </FadeIn>

@@ -9,7 +9,7 @@ import { SITE } from '@/lib/constants'
 import Link from 'next/link'
 
 const fieldClass =
-  'h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--page)] px-3 text-sm outline-none ring-[var(--primary)] focus:ring-2'
+  'h-11 w-full rounded-xl border border-white/10 bg-black/20 px-3 text-sm text-white outline-none ring-[var(--primary)] placeholder:text-white/35 focus:ring-2'
 
 export function RegisterForm() {
   const [status, setStatus] = useState<string | null>(null)
@@ -43,7 +43,7 @@ export function RegisterForm() {
   return (
     <form className="grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="sm:col-span-2">
-        <label htmlFor="fullName" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="fullName" className="mb-1.5 block text-sm font-semibold text-white">
           Full name
         </label>
         <input id="fullName" className={fieldClass} {...register('fullName')} />
@@ -51,7 +51,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-white">
           Email
         </label>
         <input id="email" type="email" className={fieldClass} {...register('email')} />
@@ -59,7 +59,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="contactNumber" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="contactNumber" className="mb-1.5 block text-sm font-semibold text-white">
           Contact number
         </label>
         <input id="contactNumber" className={fieldClass} placeholder="+257 …" {...register('contactNumber')} />
@@ -69,7 +69,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="password" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="password" className="mb-1.5 block text-sm font-semibold text-white">
           Password
         </label>
         <input id="password" type="password" className={fieldClass} {...register('password')} />
@@ -77,7 +77,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="confirmPassword" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="confirmPassword" className="mb-1.5 block text-sm font-semibold text-white">
           Confirm password
         </label>
         <input id="confirmPassword" type="password" className={fieldClass} {...register('confirmPassword')} />
@@ -87,14 +87,14 @@ export function RegisterForm() {
       </div>
 
       <div className="sm:col-span-2">
-        <label htmlFor="photo" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="photo" className="mb-1.5 block text-sm font-semibold text-white">
           Photo of yourself
         </label>
         <input
           id="photo"
           type="file"
           accept="image/*"
-          className="block w-full text-sm text-[var(--muted)] file:mr-3 file:rounded-full file:border-0 file:bg-[var(--blush)] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[var(--primary)]"
+          className="block w-full text-sm text-white/60 file:mr-3 file:rounded-full file:border-0 file:bg-[var(--blush)] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[var(--primary)]"
           onChange={(event) => {
             const file = event.target.files?.[0]
             setValue('photoName', file?.name ?? '', { shouldValidate: true })
@@ -107,7 +107,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="residence" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="residence" className="mb-1.5 block text-sm font-semibold text-white">
           Residence
         </label>
         <input
@@ -122,7 +122,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="age" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="age" className="mb-1.5 block text-sm font-semibold text-white">
           Age
         </label>
         <input
@@ -136,7 +136,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="gender" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="gender" className="mb-1.5 block text-sm font-semibold text-white">
           Gender
         </label>
         <select id="gender" className={fieldClass} defaultValue="" {...register('gender')}>
@@ -152,7 +152,7 @@ export function RegisterForm() {
       </div>
 
       <div>
-        <label htmlFor="relationshipStatus" className="mb-1.5 block text-sm font-semibold">
+        <label htmlFor="relationshipStatus" className="mb-1.5 block text-sm font-semibold text-white">
           Relationship status
         </label>
         <select
@@ -174,7 +174,7 @@ export function RegisterForm() {
         ) : null}
       </div>
 
-      <label className="flex items-start gap-2 text-sm text-[var(--muted)] sm:col-span-2">
+      <label className="flex items-start gap-2 text-sm text-white/60 sm:col-span-2">
         <input type="checkbox" className="mt-1" {...register('ageConfirmed')} />
         <span>I confirm I am {SITE.minAge} years or older.</span>
       </label>
@@ -182,7 +182,7 @@ export function RegisterForm() {
         <p className="-mt-2 text-xs text-[var(--primary)] sm:col-span-2">{errors.ageConfirmed.message}</p>
       ) : null}
 
-      <label className="flex items-start gap-2 text-sm text-[var(--muted)] sm:col-span-2">
+      <label className="flex items-start gap-2 text-sm text-white/60 sm:col-span-2">
         <input type="checkbox" className="mt-1" {...register('termsAccepted')} />
         <span>
           I agree to the{' '}
@@ -207,7 +207,7 @@ export function RegisterForm() {
       </div>
 
       {status ? (
-        <p className="rounded-xl bg-[var(--blush)] px-3 py-2 text-sm text-[var(--plum)] sm:col-span-2" role="status">
+        <p className="rounded-xl bg-[var(--blush)] px-3 py-2 text-sm text-[var(--secondary)] sm:col-span-2" role="status">
           {status}
         </p>
       ) : null}

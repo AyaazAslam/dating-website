@@ -1,5 +1,5 @@
 import { Badge } from './Badge'
-import { RevealText } from '@/components/animations/RevealText'
+import { FadeIn } from '@/components/animations/FadeIn'
 
 interface SectionHeadingProps {
   eyebrow?: string
@@ -15,15 +15,16 @@ export function SectionHeading({
   align = 'center',
 }: SectionHeadingProps) {
   return (
-    <div className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl text-left'}>
+    <FadeIn
+      className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl text-left'}
+    >
       {eyebrow ? <Badge className="mb-4">{eyebrow}</Badge> : null}
-      <RevealText
-        text={title}
-        className="font-display text-3xl font-semibold tracking-tight text-[var(--ink)] sm:text-4xl md:text-5xl"
-      />
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+        {title}
+      </h2>
       {subtitle ? (
-        <p className="mt-4 text-base leading-relaxed text-[var(--muted)] sm:text-lg">{subtitle}</p>
+        <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg">{subtitle}</p>
       ) : null}
-    </div>
+    </FadeIn>
   )
 }

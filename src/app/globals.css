@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #ff4f87;
-  --primary-deep: #e63d72;
+  --primary: #ff3d6e;
+  --primary-deep: #e62e5c;
   --secondary: #ff7ca6;
-  --plum: #632b78;
-  --plum-deep: #4f2160;
-  --ink: #211827;
-  --muted: #827784;
-  --border: #f2e5eb;
-  --blush: #fff0f5;
-  --page: #fff8fa;
+  --plum: #7a2d9a;
+  --plum-deep: #3d1a52;
+  --ink: #ffffff;
+  --muted: #b9a8c0;
+  --border: rgba(255, 255, 255, 0.12);
+  --blush: rgba(255, 61, 110, 0.12);
+  --page: #0b0612;
+  --surface: #15101c;
+  --surface-2: #1d1528;
   --white: #ffffff;
   --background: var(--page);
-  --foreground: var(--ink);
+  --foreground: #f7f2fa;
 }
 
 @theme inline {
@@ -33,11 +35,13 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
   background:
-    radial-gradient(900px 420px at 0% -10%, rgba(255, 79, 135, 0.12), transparent 60%),
-    radial-gradient(700px 380px at 100% 0%, rgba(99, 43, 120, 0.1), transparent 55%),
+    radial-gradient(900px 520px at 15% -5%, rgba(255, 61, 110, 0.28), transparent 55%),
+    radial-gradient(800px 480px at 90% 10%, rgba(122, 45, 154, 0.35), transparent 50%),
+    radial-gradient(700px 400px at 50% 100%, rgba(255, 61, 110, 0.12), transparent 55%),
     var(--page);
-  color: var(--ink);
+  color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -47,7 +51,8 @@ body {
 }
 
 ::selection {
-  background: rgba(255, 79, 135, 0.2);
+  background: rgba(255, 61, 110, 0.35);
+  color: white;
 }
 
 a {
@@ -58,16 +63,6 @@ a {
 img {
   max-width: 100%;
   height: auto;
-}
-
-@keyframes kundana-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
 }
 
 @keyframes kundana-pulse {
@@ -101,10 +96,6 @@ img {
   }
 }
 
-.animate-float {
-  animation: kundana-float 5.5s ease-in-out infinite;
-}
-
 .animate-soft-pulse {
   animation: kundana-pulse 2.4s ease-in-out infinite;
 }
@@ -118,7 +109,6 @@ img {
     scroll-behavior: auto;
   }
 
-  .animate-float,
   .animate-soft-pulse,
   .animate-heartbeat {
     animation: none !important;

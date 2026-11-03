@@ -11,8 +11,8 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--primary)]">About</p>
-      <h1 className="mt-2 font-display text-4xl font-semibold text-[var(--ink)]">{SITE.name}</h1>
-      <div className="mt-6 space-y-4 text-base leading-relaxed text-[var(--muted)]">
+      <h1 className="mt-2 font-display text-4xl font-semibold text-white">{SITE.name}</h1>
+      <div className="mt-6 space-y-4 text-base leading-relaxed text-white/60">
         <p>
           {SITE.name} is a premium dating platform concept for adults in Burundi. This website is a
           client demo mockup inspired by modern dating product experiences.

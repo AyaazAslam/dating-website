@@ -11,9 +11,9 @@ export function LoveGallery() {
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Atmosphere"
-          title="Love Looks Beautiful on Everyone."
-          subtitle="A visual moodboard for the Kundana experience."
+          eyebrow="Gallery"
+          title="Love looks good on everyone."
+          subtitle="Tap or hover a photo — this could be your story next."
         />
 
         <StaggerContainer className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3">
@@ -32,7 +32,7 @@ export function LoveGallery() {
                   className="object-cover transition duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <figcaption className="absolute inset-0 flex items-end bg-gradient-to-t from-[rgba(33,24,39,0.75)] via-transparent to-transparent p-4 opacity-0 transition duration-300 group-hover:opacity-100">
+                <figcaption className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-4 opacity-0 transition duration-300 group-hover:opacity-100">
                   <span className="text-sm font-semibold text-white">{item.caption}</span>
                 </figcaption>
               </figure>

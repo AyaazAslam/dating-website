@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h1 className="font-display text-4xl font-semibold text-[var(--ink)]">Privacy Policy</h1>
-      <div className="mt-6 space-y-4 text-base leading-relaxed text-[var(--muted)]">
+      <h1 className="font-display text-4xl font-semibold text-white">Privacy Policy</h1>
+      <div className="mt-6 space-y-4 text-base leading-relaxed text-white/60">
         <p>
           This is a demonstration privacy page for the {SITE.name} frontend. In production, this
           document would explain how personal data such as photos, residence, age, gender, contact
