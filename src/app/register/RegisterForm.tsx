@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { registerSchema, type RegisterValues } from '@/lib/validators'
 import { Button } from '@/components/ui/Button'
+import { PasswordInput } from '@/components/ui/PasswordInput'
 import { SITE } from '@/lib/constants'
 import Link from 'next/link'
 
@@ -17,6 +18,7 @@ export function RegisterForm() {
     register,
     handleSubmit,
     setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<RegisterValues>({
     resolver: zodResolver(registerSchema),
@@ -32,6 +34,13 @@ export function RegisterForm() {
       termsAccepted: false,
     },
   })
+
+  const password = watch('password')
+  const confirmPassword = watch('confirmPassword')
+  const confirmTouched = Boolean(confirmPassword)
+  const passwordsMatch = confirmTouched && password === confirmPassword
+  const passwordsDiffer = confirmTouched && password !== confirmPassword
+
 
   async function onSubmit() {
     await new Promise((resolve) => setTimeout(resolve, 700))
@@ -72,7 +81,12 @@ export function RegisterForm() {
         <label htmlFor="password" className="mb-1.5 block text-sm font-semibold text-white">
           Password
         </label>
-        <input id="password" type="password" className={fieldClass} {...register('password')} />
+        <PasswordInput
+          id="password"
+          autoComplete="new-password"
+          invalid={Boolean(errors.password)}
+          {...register('password')}
+        />
         {errors.password ? <p className="mt-1 text-xs text-[var(--primary)]">{errors.password.message}</p> : null}
       </div>
 
@@ -80,9 +94,20 @@ export function RegisterForm() {
         <label htmlFor="confirmPassword" className="mb-1.5 block text-sm font-semibold text-white">
           Confirm password
         </label>
-        <input id="confirmPassword" type="password" className={fieldClass} {...register('confirmPassword')} />
+        <PasswordInput
+          id="confirmPassword"
+          autoComplete="new-password"
+          invalid={Boolean(errors.confirmPassword) || passwordsDiffer}
+          {...register('confirmPassword')}
+        />
         {errors.confirmPassword ? (
           <p className="mt-1 text-xs text-[var(--primary)]">{errors.confirmPassword.message}</p>
+        ) : null}
+        {!errors.confirmPassword && passwordsMatch ? (
+          <p className="mt-1 text-xs text-emerald-400">Passwords match</p>
+        ) : null}
+        {!errors.confirmPassword && passwordsDiffer ? (
+          <p className="mt-1 text-xs text-[var(--primary)]">Passwords do not match</p>
         ) : null}
       </div>
 

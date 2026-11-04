@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema, type LoginValues } from '@/lib/validators'
 import { Button } from '@/components/ui/Button'
+import { PasswordInput } from '@/components/ui/PasswordInput'
 import Link from 'next/link'
 
 const fieldClass =
@@ -45,11 +46,10 @@ export function LoginForm() {
             Forgot password?
           </Link>
         </div>
-        <input
+        <PasswordInput
           id="password"
-          type="password"
           autoComplete="current-password"
-          className={fieldClass}
+          invalid={Boolean(errors.password)}
           {...register('password')}
         />
         {errors.password ? (
