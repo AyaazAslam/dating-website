@@ -1,16 +1,34 @@
 'use client'
 
-import { useReducedMotion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 /** SSR-safe: animations stay off until after hydration. */
 export function useCanAnimate() {
-  const reduce = useReducedMotion()
-  const [mounted, setMounted] = useState(false)
+  const [canAnimate, setCanAnimate] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setCanAnimate(!media.matches)
+
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
   }, [])
 
-  return mounted && !reduce
+  return canAnimate
+}
+
+export function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduced(media.matches)
+
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  return reduced
 }

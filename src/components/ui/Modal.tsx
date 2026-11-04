@@ -1,9 +1,10 @@
 'use client'
 
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import { X } from 'lucide-react'
 import { useEffect } from 'react'
 import type { ReactNode } from 'react'
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion'
 import { cn } from '@/lib/utils'
 
 interface ModalProps {
@@ -15,7 +16,7 @@ interface ModalProps {
 }
 
 export function Modal({ open, onClose, title, children, className }: ModalProps) {
-  const reduce = useReducedMotion()
+  const reduce = usePrefersReducedMotion()
 
   useEffect(() => {
     if (!open) return
