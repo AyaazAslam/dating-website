@@ -3,6 +3,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { InteractiveDemo } from '@/components/sections/InteractiveDemo'
 import { PricingSection } from '@/components/sections/PricingSection'
+import { SafetySection } from '@/components/sections/SafetySection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { LoveGallery } from '@/components/sections/LoveGallery'
 import { FAQSection } from '@/components/sections/FAQSection'
@@ -16,6 +17,7 @@ export default function HomePage() {
       <FeaturesSection />
       <InteractiveDemo />
       <PricingSection />
+      <SafetySection />
       <TestimonialsSection />
       <LoveGallery />
       <FAQSection />

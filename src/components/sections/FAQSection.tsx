@@ -9,9 +9,9 @@ export function FAQSection() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <SectionHeading
           align="left"
-          eyebrow="Support"
-          title="Questions? We've Got Answers."
-          subtitle="Quick answers about signup, pricing, matching, and privacy."
+          eyebrow="FAQ"
+          title="Questions and answers"
+          subtitle="Activation, chat, WhatsApp unlock, VIP, and safety — including one Kirundi FAQ."
         />
         <FadeIn>
           <Accordion items={faqs} />

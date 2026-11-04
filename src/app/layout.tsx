@@ -22,7 +22,7 @@ const display = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} · Dating in Burundi`,
+    default: `${SITE.name}.com — ${SITE.tagline}`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: `${SITE.name} · Find your person in Burundi`,
+    title: `${SITE.name}.com — ${SITE.tagline}`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,

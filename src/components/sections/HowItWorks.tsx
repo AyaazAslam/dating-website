@@ -11,16 +11,16 @@ export function HowItWorks() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="How it works"
-          title="Get started in minutes"
-          subtitle="Your match is just a few taps away."
+          title="How registration works"
+          subtitle="Four clear steps from signup to a real conversation."
         />
 
-        <StaggerContainer className="relative mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <StaggerContainer className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {howItWorks.map((step, index) => {
             const Icon = icons[index]
             return (
               <StaggerItem key={step.id}>
-                <article className="relative h-full rounded-[1.5rem] border border-white/10 bg-[var(--surface)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--primary)]/50 hover:shadow-[0_18px_44px_rgba(255,61,110,0.12)]">
+                <article className="relative h-full rounded-[1.5rem] border border-white/10 bg-[var(--surface)] p-6 transition duration-300 hover:border-[var(--primary)]/45">
                   <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--blush)] text-[var(--primary)]">
                     <Icon className="h-5 w-5" />
                   </div>

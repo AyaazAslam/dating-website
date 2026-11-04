@@ -9,13 +9,13 @@ export function InteractiveDemo() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="Product demo"
-            title="More Than Just Swiping."
-            subtitle="A beautiful experience designed to bring people closer. Try likes, chats, and tabs in this frontend demo."
+            eyebrow="Try the flow"
+            title="Swipe. Match. Chat."
+            subtitle="Use this demo phone to pass, like, open chats, and switch tabs. No backend is connected."
           />
           <FadeIn className="mt-6 space-y-3 text-sm leading-relaxed text-white/60">
-            <p>Pass moves to the next profile. Like opens a match modal. Chats switch conversations instantly.</p>
-            <p>No backend is connected. Every interaction is a product preview for client review.</p>
+            <p>Pass shows the next profile. Like opens a match popup. Chats switch conversations.</p>
+            <p>This is a product preview for client review, not a live matchmaking system.</p>
           </FadeIn>
         </div>
         <FadeIn variant="scale">

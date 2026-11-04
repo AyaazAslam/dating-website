@@ -24,7 +24,8 @@ export function Footer() {
             <span className="text-[var(--primary)]">.com</span>
           </p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/55">
-            Helping people across Burundi discover meaningful connections, one story at a time.
+            Burundi&apos;s dating app for adults 18+. Activate, swipe, chat free after a match, unlock
+            WhatsApp when ready.
           </p>
           <div className="mt-5 flex gap-3">
             {['IG', 'FB', 'TT'].map((label) => (

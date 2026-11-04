@@ -8,45 +8,47 @@ import { PhoneMockup } from '@/components/mockups/PhoneMockup'
 import { FloatingNotifications } from '@/components/mockups/FloatingNotifications'
 import { SITE } from '@/lib/constants'
 import { formatBif } from '@/lib/utils'
-import { Heart, ShieldCheck, Sparkles, Users } from 'lucide-react'
+import { ShieldCheck, Sparkles, Users } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pb-16 pt-6 sm:pb-20 sm:pt-8">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-24 h-40 w-40 -translate-x-1/2 rounded-full bg-[var(--primary)]/20 blur-3xl" />
-        <Heart className="absolute left-[8%] top-28 h-10 w-10 fill-[var(--primary)] text-[var(--primary)] opacity-30" />
-        <Heart className="absolute right-[12%] top-40 h-7 w-7 fill-white/20 text-white/20 opacity-40" />
+    <section className="relative overflow-hidden pb-14 pt-6 sm:pb-18 sm:pt-8">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-[10%] top-16 h-56 w-56 rounded-full bg-[var(--primary)]/20 blur-3xl" />
+        <div className="absolute right-[5%] top-10 h-64 w-64 rounded-full bg-[var(--plum)]/25 blur-3xl" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-8">
         <div>
           <FadeIn>
-            <Badge className="border-white/10 bg-white/5 text-[var(--secondary)]">
+            <Badge>
               <Sparkles className="h-3.5 w-3.5" />
-              Burundi dating app
+              {SITE.tagline}
             </Badge>
           </FadeIn>
 
           <FadeIn delay={0.05}>
-            <h1 className="mt-5 max-w-xl font-display text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Swipe. Match. Chat. Find Love in Burundi.
+            <h1 className="mt-5 max-w-xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+              Join Kundana. Find your match in Burundi.
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-              Real verified singles in Bujumbura, Gitega, Ngozi and Rumonge. Swipe profiles, chat
-              free, unlock WhatsApp when it feels right. Adults 18+ only.
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
+              Create a profile, activate for {formatBif(SITE.registrationFee)} {SITE.currency}, swipe
+              real people, chat free after a match, and unlock WhatsApp when you are ready.
+            </p>
+            <p className="mt-2 text-sm font-medium text-[var(--secondary)]">
+              Murakaza neza · Adults {SITE.minAge}+ only
             </p>
           </FadeIn>
 
           <FadeIn delay={0.15} className="mt-7 flex flex-wrap gap-3">
             <ButtonLink href="/register" size="lg">
-              Create account
+              Create account · {formatBif(SITE.registrationFee)} {SITE.currency}
             </ButtonLink>
-            <ButtonLink href="/login" variant="secondary" size="lg">
-              Login
+            <ButtonLink href="/#how-it-works" variant="secondary" size="lg">
+              How it works
             </ButtonLink>
           </FadeIn>
 
@@ -72,7 +74,7 @@ export function HeroSection() {
                 {formatBif(SITE.registrationFee)}
               </p>
               <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/50">
-                {SITE.currency} to join
+                {SITE.currency} activation
               </p>
             </div>
           </FadeIn>
@@ -80,16 +82,16 @@ export function HeroSection() {
           <FadeIn delay={0.25} className="mt-6 flex flex-wrap gap-4 text-sm text-white/60">
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="h-4 w-4 text-[var(--primary)]" />
-              18+ only
+              {SITE.minAge}+ only
             </span>
             <span className="inline-flex items-center gap-1.5">
               <Users className="h-4 w-4 text-[var(--primary)]" />
-              Burundi focused
+              {SITE.cities.slice(0, 3).join(', ')} + more
             </span>
           </FadeIn>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[360px] pb-6 pt-4 lg:mx-0 lg:justify-self-end">
+        <div className="relative mx-auto w-full max-w-[360px] pb-4 pt-2 lg:mx-0 lg:justify-self-end">
           <FloatingNotifications />
           <PhoneMockup />
         </div>

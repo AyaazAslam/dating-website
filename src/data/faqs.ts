@@ -2,41 +2,41 @@ import type { FaqItem } from '@/types'
 import { SITE } from '@/lib/constants'
 
 const fee = `${SITE.registrationFee.toLocaleString('en-BI')} ${SITE.currency}`
+const unlock = `${SITE.whatsappUnlockFee.toLocaleString('en-BI')} ${SITE.currency}`
 
 export const faqs: FaqItem[] = [
   {
     id: 'q1',
     question: 'How do I create an account?',
     answer:
-      'Open Create Account, upload a clear photo of yourself, then add residence, age, gender, contact number, and relationship status. Confirm you are 18 or older and submit.',
+      'Sign up with your phone number or email, upload real photos, write a short bio, and complete your profile details. Adults 18+ only.',
   },
   {
     id: 'q2',
-    question: 'Is creating a profile free?',
-    answer: `Browsing the marketing site is free. Activating a member account requires a one time registration fee of ${fee}. This demo does not process real payments.`,
+    question: 'What is the activation fee?',
+    answer: `To browse and interact you pay a one-time activation fee of ${fee} via ${SITE.paymentMethods.join(', ')}.`,
   },
   {
     id: 'q3',
-    question: 'How does matching work?',
+    question: 'Is chatting free?',
     answer:
-      'Like a profile. When someone likes you back, you get a match and can start chatting in the demo interface.',
+      'Yes. After a mutual match, basic in-app chat is free. You only pay extra if you unlock WhatsApp or buy VIP.',
   },
   {
     id: 'q4',
-    question: 'Can I update my profile?',
-    answer:
-      'Yes. After signup you can update photos, residence, relationship status, and other details from your profile settings.',
+    question: 'How does WhatsApp unlock work?',
+    answer: `You can unlock one profile WhatsApp number for ${unlock}. Weekly VIP includes 2 free unlocks each week.`,
   },
   {
     id: 'q5',
-    question: 'How can I protect my privacy?',
+    question: 'How can I stay safe?',
     answer:
-      'Only share what you are comfortable sharing. Kundana accounts are for adults 18+. Never send money to strangers and report suspicious behavior.',
+      'Use real photos, be honest, never send money to strangers, and meet for the first time in a public place such as a cafe or salon.',
   },
   {
     id: 'q6',
-    question: 'How do I contact support?',
+    question: 'Nigute nakora account?',
     answer:
-      'Use the floating WhatsApp button for demo support. In production this would connect to a real support line.',
+      'Fungura Create Account, shyiramo numero cyangwa email, photos, na bio. Hanyuma wishyure 5,000 BIF kugira ngo utangire.',
   },
 ]
